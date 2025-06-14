@@ -30,7 +30,8 @@ int main() {
 
 
 
-
+    // posicionamento de navios
+    // primeiro navio
     for(int i = 0; i < TAMANHO_NAVIO; i++) {
         // verificando se já existe um navio naquela posição do tabuleiro
         if(tabuleiro[linhaHorizontal][colunaHorizontal + i] == NUMERO_NAVIO ) {
@@ -40,7 +41,7 @@ int main() {
         tabuleiro[linhaHorizontal][colunaHorizontal + i] = NUMERO_NAVIO; // coloca o navio nessa posição do tabuleiro
     }
 
-
+    // segundo navio 
      for(int i = 0; i < TAMANHO_NAVIO; i++) {
         // verificando se já existe um navio naquela posição do tabuleiro
         if(tabuleiro[linhaVertical + i][colunaVertical] == NUMERO_NAVIO ) {
@@ -49,11 +50,33 @@ int main() {
         }
         tabuleiro[linhaVertical + i][colunaVertical] = NUMERO_NAVIO; // coloca o navio nessa posição do tabuleiro
     }
+
+
+    // terceiro navio
+     for(int i = 0; i < TAMANHO_NAVIO; i++) {
+        // verificando se já existe um navio naquela posição do tabuleiro
+        if(tabuleiro[6 + i][6 + i] == NUMERO_NAVIO ) {
+            printf("Erro: Sobreposição detectada.\n");
+            return 1;
+        }
+        tabuleiro[6 + i][6 + i] = NUMERO_NAVIO; // coloca o navio nessa posição do tabuleiro
+    }
+
+    // quarto navio
+     for(int i = 0; i < TAMANHO_NAVIO; i++) {
+        // verificando se já existe um navio naquela posição do tabuleiro
+        if(tabuleiro[2 - i][2 - i] == NUMERO_NAVIO ) {
+            printf("Erro: Sobreposição detectada.\n");
+            return 1;
+        }
+        tabuleiro[2 - i][2 - i] = NUMERO_NAVIO; // coloca o navio nessa posição do tabuleiro
+    }
+
     // Exibição do tabuleiro
     printf("\nTabuleiro de Batalha Naval:\n\n");
-    for(int i = 0; i < TAMANHO_TABULEIRO; i++) {
-        for(int j = 0; j < TAMANHO_TABULEIRO; j++) {
-            printf("%d ", tabuleiro[i][j]);
+    for(int i = 0; i < TAMANHO_TABULEIRO; i++) { // loop para percorrer a linha da matriz
+        for(int j = 0; j < TAMANHO_TABULEIRO; j++) { // loop aninhado para percorrer a coluna da matriz
+            printf("%d ", tabuleiro[i][j]); // exibição do tabuleiro
         }
         printf("\n");
     }
